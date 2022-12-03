@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+<script defer>
+    console.log("Script loading");
+    // Add an event listener to the search button
+    function do_a_barrel_roll() {
+        console.log("Doing a barrel roll");
+        // Add the `barrel-roll` class to the body for 4 seconds
+        $("body").addClass("barrel-roll");
+        setTimeout(function() {
+            $("body").removeClass("barrel-roll");
+        }, 4000);
+    }
+
+    // Add an event listener to the search button
+    function search(){
+        const term = $("#sbox").val();
+        console.log("Searching for " + term);
+        if (term == "Do a barrel roll") {
+            do_a_barrel_roll(); // :-)
+        }
+    }
+
+    $(document).ready(() =>{
+        console.log("Document ready");
+        $("#sbtn").click(search);
+    });
+</script>
+
+<body>
+    <div class="navbar">
+        <div class="github-corner">
+            <a href="https://github.com/Advik-B" class="github-link">Advik-B</a>
+        </div>
+        <!-- Search box -->
+        <div class="search-area">
+            <input class="search-box" type="text" name="search-query" placeholder="Type to search" id="sbox">
+            <button class="search-button" type="submit" id="sbtn">
+                Search
+            </button>
+        </div>
+    </div>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et erat ultrices, efficitur metus vitae, aliquam metus. Vivamus viverra id ligula et finibus. Pellentesque id nisl mollis, placerat tortor eu, facilisis nibh. Duis quis ipsum ipsum. Vivamus eget felis ac lacus facilisis faucibus. Pellentesque id sodales nibh, id interdum diam. Pellentesque et diam at mi iaculis dictum. Nullam vitae nunc tempor, rutrum erat vel, dignissim nunc. Curabitur viverra risus ut neque commodo convallis. Aenean vel orci sit amet massa dapibus auctor. Pellentesque eget turpis vestibulum, tincidunt sapien quis, vulputate metus. Vivamus sed maximus magna. Praesent tincidunt pretium ipsum, id consequat dolor finibus in.
+</p>
+
+<p>
+Nunc pharetra aliquet orci, eget fermentum tortor sagittis nec. Maecenas in nibh in erat imperdiet ultricies nec ut urna. Vivamus congue lobortis justo, sed sodales lectus faucibus non. Sed placerat nisl vel sollicitudin pharetra. Ut interdum urna et nunc hendrerit, molestie tristique libero semper. Integer sed nibh in urna interdum dapibus. Proin dapibus est eget dui rhoncus gravida. Proin mattis porttitor neque sit amet volutpat. Vivamus at consequat est.
+</p>
+
+<p>
+Donec vel arcu eget neque convallis laoreet. Nullam ullamcorper, sapien in suscipit vestibulum, urna turpis pretium est, eget pulvinar urna diam id odio. Vestibulum consectetur euismod leo. Donec sit amet tempus arcu. Pellentesque sed fermentum est, nec tincidunt orci. Ut consectetur eros at massa vulputate consectetur. Maecenas eu pharetra nibh. Donec nec ullamcorper ipsum. Mauris libero tortor, ornare a condimentum sed, semper eget sem. Mauris nisl dolor, lobortis et quam sodales, imperdiet tincidunt nunc. Phasellus ipsum sem, vestibulum non est vitae, eleifend tempor justo. Phasellus lacus quam, convallis id pharetra a, mattis sed mi.
+</p>
+
+<p>
+Mauris rhoncus, dui sit amet efficitur egestas, tortor elit vulputate est, vel blandit erat erat vitae libero. Suspendisse potenti. Sed bibendum interdum venenatis. Curabitur eget ornare nisi. Aliquam dictum lectus arcu, bibendum pellentesque ligula tincidunt quis. Nam a tellus nunc. Ut varius lectus gravida suscipit faucibus. Aliquam porttitor egestas sem sed dictum. Quisque ac porttitor dolor, vel condimentum ligula. Aenean quis ex porttitor, consequat diam eget, ultricies tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec quis nisi a lectus sagittis tristique quis non libero. Duis pellentesque sapien purus, in placerat dui ullamcorper vel.
+</p>
+
+<p>
+Praesent pulvinar odio in justo viverra, eu vestibulum lorem dignissim. Donec feugiat iaculis leo. Mauris venenatis leo tincidunt nisi lacinia suscipit. Donec ante lectus, lobortis eget sem a, venenatis suscipit neque. Nulla elementum, arcu nec dapibus lacinia, nisl massa varius magna, a viverra mi enim ac massa. Phasellus efficitur mattis dapibus. Duis nec massa elementum, molestie ipsum in, egestas justo. Suspendisse hendrerit, arcu eget auctor commodo, nibh sem ullamcorper lacus, quis vehicula diam ex sed lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Donec porttitor feugiat consequat.
+</p>
+
+
+</body>
+</html>
