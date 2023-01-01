@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" rel="stylesheet">
+
+    <style>
+      /* Add a "dark-mode" class to the body to enable dark mode */
+      body.dark-mode {
+        --bg-primary: #1a202c;
+        --bg-secondary: #2d3748;
+        --bg-tertiary: #4a5568;
+        --text-primary: #e2e8f0;
+        --text-secondary: #cbd5e0;
+        --text-tertiary: #a0aec0;
+        --accent-primary: #3182ce;
+        --accent-secondary: #3490dc;
+        --accent-tertiary: #38b2ac;
+        --border-primary: #4a5568;
+        --border-secondary: #2d3748;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans dark-mode">
+    <div class="container mx-auto py-16">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 px-4 mb-8">
+          <div class="bg-white rounded shadow-lg p-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Project Title</h2>
+            <p class="text-gray-600 mb-4">A small description of the project goes here.</p>
+            <p class="text-gray-800 mb-4">A longer description of the project goes here. This can include details about the technologies used, the challenges overcome, and any other relevant information.</p>
+            <img class="w-full rounded-lg shadow-lg mb-4" src="https://via.placeholder.com/800x400" alt="Cover image for the project">
+            <div class="flex justify-between items-center">
+              <a class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full" href="#">
+                <i class="fas fa-download mr-2"></i> Download
+              </a>
+              <a class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full" href="#">
+                <i class="fas fa-code mr-2"></i> View Source
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
