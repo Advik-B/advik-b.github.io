@@ -24,9 +24,8 @@
 
 `1919` (A lot of shit happend, here is the list)
 
- - Rowlatt Act
-
- - Jallianwala Bagh Massicre
+  - Rowlatt Act
+  - Jallianwala Bagh Massicre
 
 `1920` Non corpration moment
 
