@@ -7,9 +7,11 @@ I am currently learning the following languages:
 - C#
 
 I am experienced in the following languages:
+
 - Python
 
 I usally use the following IDEs:
+
 - Visual Studio Code (Web Development / Python)
 - PyCharm (Python)
 
