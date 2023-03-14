@@ -1,17 +1,26 @@
-# Welcome to MkDocs
+# Welcome to my GitHub Blog
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+I am Advik, a 16 year old programmer from India
+I am currently learning the following languages:
+- C++
+- C#
 
-## Commands
+I am experienced in the following languages:
+- Python
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+I usally use the following IDEs:
+- Visual Studio Code (Web Development / Python)
+- PyCharm (Python)
 
-## Project layout
+I am currently working on passing my Exams.
+I am also working on a few projects, which I will be publishing soon.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Anyways, feel free to navigate through my blog
+
+## Contact Me
+
+- [Email](mailto:advik.b@gmail.com)
+- [GitHub](https://github.com/Advik-B)
+- [Discord](https://discord.com/users/Advik#9471) `Advik#9471`
+- [Twitter](https://twitter.com/Advik_B)
+- [Instagram](https://instagram.com/advik.b26)
