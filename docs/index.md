@@ -23,8 +23,13 @@ I'm currently studying for my exams while dedicating time to improving my coding
 If you have any questions, feel free to contact me through any of the following channels:
 
 Email: advik.b@gmail.com
+
 GitHub: https://github.com/Advik-B
-Discord: Advik#9471
+
+Discord: `Advik#9471`
+
 Twitter: https://twitter.com/Advik_B
+
 Instagram: https://instagram.com/advik.b26
+
 Thank you for visiting my GitHub blog. Let's connect and collaborate!
