@@ -1,0 +1,945 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Question Bank answers</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9c712c2c-1527-43d5-86b3-1ed3045f1fbb" class="page sans"><header><h1 class="page-title">Question Bank answers</h1><p class="page-description"></p></header><div class="page-body"><h1 id="59ce001a-d8d9-4393-a839-095dea5640c4" class="">The questions:</h1><figure id="120c6ee3-ee6d-4d91-8658-299699d50012"><div class="source"><a href="static/Question_Bank_Function1.pdf">Question_Bank_Function[1].pdf</a></div></figure><h1 id="9f481881-2c5f-4852-9f7d-82f7c61b455b" class="">Question Bank – 1</h1><p id="782243ac-b8a6-4dff-90e0-eb6198645ade" class="">
+</p><p id="80f48247-1d1e-43c6-a41d-3be329617f12" class=""><strong>Q1. Define a function in brief? Write syntax to create a user-defined function.</strong></p><ul id="07e79394-938e-40b6-952e-7333a419f115" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition</strong> A function is a block of code that performs a specific task. It helps in organizing code into reusable blocks.</li></ul><ul id="5ea47048-67dd-4db1-96bf-cbd17b6218e6" class="bulleted-list"><li style="list-style-type:disc"><strong>Syntax</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a8e59400-3678-4a40-b7dd-9bd9a8275d31" class="code"><code class="language-Python">def function_name(parameters):
+    # function body
+    return value</code></pre></li></ul><p id="d0605dd0-af72-4d82-a774-42bd8de16617" class="">
+</p><p id="9217c424-f564-4d26-91b1-b28828db7b58" class=""><strong>Q2. Write advantages of using functions.</strong></p><ul id="0a45d963-5b71-471e-8ec0-ad75b02c2316" class="bulleted-list"><li style="list-style-type:disc">Reusability</li></ul><ul id="a40d195f-5316-4659-9cba-5518cd26d913" class="bulleted-list"><li style="list-style-type:disc">Modularity</li></ul><ul id="5eb007ef-0fe4-4fa6-a47e-d58d2dbe2c78" class="bulleted-list"><li style="list-style-type:disc">Improved readability</li></ul><ul id="4ce6450f-82f0-446d-ac06-9dfd3c21b893" class="bulleted-list"><li style="list-style-type:disc">Easier maintenance</li></ul><ul id="376e9212-b601-4d1e-986f-30be9b5526a9" class="bulleted-list"><li style="list-style-type:disc">Debugging ease</li></ul><p id="4aebd4b9-e2bb-48b8-a3e1-8cbbe88dd290" class=""><strong>Q3. Name at least 3-3 examples of built-in functions and functions in module.</strong></p><ul id="1edf3d3a-a83b-4d21-985e-46df48faf6c1" class="bulleted-list"><li style="list-style-type:disc"><strong>Built-in functions</strong>: <code>print()</code>, <code>len()</code>, <code>type()</code></li></ul><ul id="dc8ffe23-db1f-46d6-a427-89690afe598f" class="bulleted-list"><li style="list-style-type:disc"><strong>Module functions</strong>: <code>math.sqrt()</code>, <code>random.randint()</code>, <code>os.path.join()</code></li></ul><p id="4aff2db0-cef7-4b23-a7c8-2670bcabded4" class="">
+</p><p id="d4306cb6-055e-40bf-a7aa-733c1e2b3948" class=""><strong>Q4. Write a function </strong><code><strong>differ()</strong></code><strong> which accepts two numbers and prints the difference between them.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a73183a6-cab7-466e-972a-6e9f2b0344e4" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def differ(a, b):
+    print(abs(a - b))
+
+differ(18, 15)  # prints 3
+differ(6, 10)   # prints 4</code></pre><p id="dac26007-d8da-4f66-9f86-26cae5f076d0" class="">
+</p><p id="84795d39-193a-46e6-8805-7afdaf99bacf" class=""><strong>Q5. Write a function </strong><code><strong>rectangle()</strong></code><strong> which accepts length and breadth of a rectangle, and returns the area and perimeter of it. Use this function in the main program to accept length and breadth and print its area and perimeter.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="57bba902-e3cf-4d01-9260-2a8b0464cc88" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def rectangle(length, breadth):
+    area = length * breadth
+    perimeter = 2 * (length + breadth)
+    return area, perimeter
+
+length = float(input(&quot;Enter length: &quot;))
+breadth = float(input(&quot;Enter breadth: &quot;))
+area, perimeter = rectangle(length, breadth)
+print(f&quot;Area: {area}, Perimeter: {perimeter}&quot;)</code></pre><p id="3bdb8a9d-0bf6-4126-8fa0-bffcf94e74a0" class="">
+</p><p id="30048a4f-d92b-43bf-a4b8-29c7ce61dd4a" class=""><strong>Q6. Write a function which accepts two numbers and returns their sum, subtraction, division, and multiplication. Use this in the main program to accept two numbers and print all four basic mathematical calculations.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e152a36c-16ee-4b98-a03e-a9d955ca57a7" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def basic_operations(a, b):
+    return a + b, a - b, a / b, a * b
+
+a = float(input(&quot;Enter first number: &quot;))
+b = float(input(&quot;Enter second number: &quot;))
+sum_, diff, div, mul = basic_operations(a, b)
+print(f&quot;Sum: {sum_}, Subtraction: {diff}, Division: {div}, Multiplication: {mul}&quot;)</code></pre><p id="1db569a1-6939-4c34-9772-499b40524209" class="">
+</p><p id="fc60cd4b-dd79-4267-9833-918e57ec3979" class=""><strong>Q7. Write a function which accepts a number as an argument and returns twice the number if the given number is even, otherwise returns thrice the number. Use this function in the main program to test it.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ce70ae42-c8e2-4f53-a1e4-6c24177e4144" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def process_number(n):
+    return 2 * n if n % 2 == 0 else 3 * n
+
+number = int(input(&quot;Enter a number: &quot;))
+result = process_number(number)
+print(result)</code></pre><hr id="c219e383-0798-4666-b756-fed6773941e5"/><p id="13ee8e5e-c97c-49db-bc3f-7bff7cb23b53" class="">
+</p><h1 id="ff4ec82e-39c7-48e3-a46f-0f180e1aa65e" class="">Question Bank – 2</h1><p id="cf30f61e-945f-41f2-9832-4a5c821a2545" class="">
+</p><p id="2302a5bc-9ac6-4589-98d3-357a076db1e6" class=""><strong>Q1. Write a function which inputs a person&#x27;s name as an argument and prints a greeting message as: Good Morning </strong><code><strong>&lt;person-name&gt;</strong></code></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1524db60-0559-45ea-9b78-5c537eb44d30" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def greet(name):
+    print(f&quot;Good Morning {name}&quot;)
+
+name = input(&quot;Enter your name: &quot;)
+greet(name)</code></pre><p id="53d2db71-f044-41df-b002-bab81e3f3e3d" class="">
+</p><p id="8073ae8d-085d-4a96-8e3a-a79703920ee2" class=""><strong>Q2. Write a function which accepts a number as an argument and returns 0 if it is an even number, else returns 1. Use this function in the main program to accept a range from the user (from lower to upper number) and print the even numbers between them.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="00e897c5-f883-4d1e-a722-6a337bf85336" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def is_even(n):
+    return 0 if n % 2 == 0 else 1
+
+lower = int(input(&quot;Enter lower range: &quot;))
+upper = int(input(&quot;Enter upper range: &quot;))
+for num in range(lower, upper + 1):
+    if is_even(num) == 0:
+        print(num, end=&#x27; &#x27;)
+</code></pre><p id="ba73722f-eeb2-44e2-ac17-68e3811fbeb3" class="">
+</p><p id="38a894cd-3fb0-4989-94f1-f54993c77162" class=""><strong>Q3. What do you mean by Formal and Actual Parameters? Explain giving example.</strong></p><ul id="6fa7e217-9341-4e1a-9900-a57f91f1cd4c" class="bulleted-list"><li style="list-style-type:disc"><strong>Formal Parameters</strong>: Parameters defined in the function definition.</li></ul><ul id="fb571467-b7a6-4e39-95ab-cb7764a5d61b" class="bulleted-list"><li style="list-style-type:disc"><strong>Actual Parameters</strong>: Values passed to the function when called.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2a697311-ad05-4d69-b5db-63c98a2de7f2" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def func(a, b):  # a, b are formal parameters
+    return a + b
+
+result = func(2, 3)  # 2, 3 are actual parameters</code></pre></li></ul><p id="25e2a32c-c2d6-454a-95cd-ee651ac63d80" class="">
+</p><p id="8c10decd-ab95-4a8a-a367-6149aedef672" class=""><strong>Q4. Write the definition of a function </strong><code><strong>HowMany(ID, VALUE)</strong></code><strong> to count and display the number of times the VALUE is present in the list ID.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3a2ffd6d-3245-4300-9539-f846de53a645" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def HowMany(ID, VALUE):
+    count = ID.count(VALUE)
+    print(f&quot;{VALUE} found {count} times&quot;)
+
+ID = [115, 25, 65, 59, 74, 25, 110, 250]
+VALUE = 25
+HowMany(ID, VALUE)</code></pre><p id="d4a847c7-b196-4ee3-92dc-303db21116f3" class="">
+</p><p id="a3774a48-61df-47c7-bb6f-ed7de9ab12dc" class=""><strong>Q5. Write the definition of a method </strong><code><strong>EvenSum(NUMBERS)</strong></code><strong> to add those values in the list of NUMBERS, which are odd.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c1de2ae6-9b96-4cde-bb8e-ece3089b45e6" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def EvenSum(NUMBERS):
+    odd_sum = sum(num for num in NUMBERS if num % 2 != 0)
+    print(odd_sum)
+
+NUMBERS = [1, 2, 3, 4, 5, 6]
+EvenSum(NUMBERS)</code></pre><p id="7098bb68-1357-4e55-a8a5-4802422cb1f2" class="">
+</p><p id="2d4e1b27-16d0-4901-bea7-dd0a3b179c1c" class=""><strong>Q6. Write a function </strong><code><strong>myfunc()</strong></code><strong> which accepts two numbers as parameters and returns the sum of the square of the first number and the square root of the second number.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="82489c1f-b5f2-4e9a-970a-b0b49dcfa3b5" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import math
+
+def myfunc(a, b):
+    return a**2 + math.sqrt(b)
+
+a = 4
+b = 16
+print(myfunc(a, b))  # returns 20
+</code></pre><p id="954662ba-a370-48d4-a3f6-8808697444d3" class="">
+</p><p id="b81946ca-209c-461a-a16a-726a78037abc" class=""><strong>Q7. Write a function </strong><code><strong>printDate()</strong></code><strong> which accepts day, month, and year as parameters and prints in the given format.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="09ae2c9f-ea44-4ed6-beee-32c9c9af1331" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def printDate(d, m, y):
+    months = [&quot;JAN&quot;, &quot;FEB&quot;, &quot;MAR&quot;, &quot;APR&quot;, &quot;MAY&quot;, &quot;JUN&quot;, &quot;JUL&quot;, &quot;AUG&quot;, &quot;SEP&quot;, &quot;OCT&quot;, &quot;NOV&quot;, &quot;DEC&quot;]
+    print(f&quot;{d}-{months[m-1]}-{y}&quot;)
+
+printDate(15, 4, 2024)  # prints 15-APR-2024</code></pre><h1 id="623a4947-5a31-4199-959c-ba2cc6a75f1a" class="">Question Bank – 3</h1><p id="8cddadc4-8f84-456b-a719-ea06b496b5be" class="">
+</p><p id="be3e4caa-bd39-4059-a356-667c44faaefc" class=""><strong>Q1. What do you mean by default argument in a function? Explain giving example.</strong></p><ul id="f18ee16f-64a1-434c-aa20-e5ab18d8e53f" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition</strong>: A default argument is a parameter that assumes a default value if no value is provided in the function call.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="75a49013-c0ab-4118-93ea-b76757bbd92a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def greet(name=&quot;Guest&quot;):
+    print(f&quot;Hello, {name}!&quot;)
+
+greet(&quot;Alice&quot;)  # prints Hello, Alice!
+greet()  # prints Hello, Guest!</code></pre></li></ul><p id="b4f7efaa-65ab-469c-9256-969ceee5b3cf" class="">
+</p><p id="b251440c-3d23-4134-b6e7-daa3ee44a456" class=""><strong>Q2. Explain the three types of functions depending on their return value with example.</strong></p><ol type="1" id="96a22238-fa62-4587-88cf-553d2a1a8771" class="numbered-list" start="1"><li><strong>No return value</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d4161e62-ca04-43a2-8cd0-4c9ab9fbb65e" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def greet():
+    print(&quot;Hello!&quot;)</code></pre></li></ol><ol type="1" id="1a2927fe-8b92-473c-b42e-2979c3cfed64" class="numbered-list" start="2"><li><strong>Single return value</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f8a2e18d-9d0b-44a4-af3b-13c9cf30e374" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def add(a, b):
+    return a + </code></pre></li></ol><ol type="1" id="230d9041-c7ba-4e0a-8e73-ee4dbebcbb85" class="numbered-list" start="3"><li><strong>Multiple return values</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="adb4076e-da1a-4040-ab9d-d638df46969b" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def operations(a, b):
+    return a + b, a - b, a * b, a / b</code></pre></li></ol><p id="9d9f4941-01cc-4d4e-87f2-3a76bc37fddd" class="">
+</p><p id="12ec89d7-f5c2-4e62-8324-c0a4fe07a785" class=""><strong>Q3. Name the Python library modules which need to be imported to invoke the following functions:</strong></p><ul id="a25167dc-1685-4b65-af13-7b7be51fd042" class="bulleted-list"><li style="list-style-type:disc"><strong>i. floor()</strong>: <code>math</code></li></ul><ul id="b7f5d4ef-5aaa-430e-969a-51c82aa051c6" class="bulleted-list"><li style="list-style-type:disc"><strong>ii. randint()</strong>: <code>random</code></li></ul><ul id="c6a018fa-97e8-4d2d-98d0-f92883ffdabe" class="bulleted-list"><li style="list-style-type:disc"><strong>iii. plot()</strong>: <code>matplotlib.pyplot</code></li></ul><ul id="21be938c-d7cb-41ab-a700-a29eefffd795" class="bulleted-list"><li style="list-style-type:disc"><strong>iv. sin()</strong>: <code>math</code></li></ul><p id="79263ad9-c351-46cb-969d-573e2de7723e" class="">
+</p><p id="ab08650c-de5a-4a80-9048-77f31215e2db" class=""><strong>Q4. Write the definition of a method </strong><code><strong>ZeroEnding(SCORES)</strong></code><strong> to add all those values in the list of SCORES, which are ending with zero (0) and display the sum.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="428092d6-e34c-4839-ae7b-84a737067981" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def ZeroEnding(SCORES):
+    zero_sum = sum(score for score in SCORES if score % 10 == 0)
+    print(zero_sum)
+
+SCORES = [200, 456, 300, 100, 234, 678]
+ZeroEnding(SCORES)  # prints 600</code></pre><p id="acd75fa4-fded-4357-be31-f61f1f5d5fe4" class="">
+</p><p id="8fb5b235-e882-4971-a689-338411f8c515" class=""><strong>Q5. Write the definition of a method </strong><code><strong>printPrime(NUMBERS)</strong></code><strong> to print prime numbers of the list of NUMBERS.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f0fbbc47-1270-41c0-a0ca-a345730e826f" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def is_prime(n):
+    if n &lt;= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def printPrime(NUMBERS):
+    primes = [num for num in NUMBERS if is_prime(num)]
+    print(&quot;, &quot;.join(map(str, primes)))
+
+NUMBERS = [1, 2, 3, 4, 5]
+printPrime(NUMBERS)  # prints 2, 3, 5</code></pre><p id="d65c1a58-80aa-4b56-ba3c-22071d2aebb9" class="">
+</p><p id="f0f3f71b-66aa-4c35-af34-e49826be66e7" class=""><strong>Q6. Differentiate direct and indirect recursion with an example.</strong></p><ul id="28f94c09-adb5-4ac6-b870-dfebf3208fd6" class="bulleted-list"><li style="list-style-type:disc"><strong>Direct Recursion</strong>: A function calls itself.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="862bbaeb-2606-46b5-9249-84853c16f118" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def direct_recursion(n):
+    if n &gt; 0:
+        print(n)
+        direct_recursion(n-1)</code></pre></li></ul><ul id="772a7e83-bd64-46b5-bdd5-dea3b1fcdb40" class="bulleted-list"><li style="list-style-type:disc"><strong>Indirect Recursion</strong>: A function calls another function, which in turn calls the first function.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="696cbe6e-c257-40d3-a4b3-51a98bf3ddbe" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def indirect_recursion1(n):
+    if n &gt; 0:
+        print(n)
+        indirect_recursion2(n-1)
+
+def indirect_recursion2(n):
+    if n &gt; 0:
+        indirect_recursion1(n-1)</code></pre></li></ul><p id="153d8f46-4481-4a67-bd2e-73ed536ab61e" class="">
+</p><p id="b490cf5a-5673-4d83-91dc-14124520c37d" class=""><strong>Q7. Write a function </strong><code><strong>isPrime(N)</strong></code><strong> which inputs a number as an argument and returns 0 if the number is prime, else 1. Code another function </strong><code><strong>isPalin(N)</strong></code><strong> which inputs a number and returns 0 if the number is palindrome, else 1. Now in the main program, accept lower and upper range from the user to print palprime numbers between them.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="12d3e878-6015-40a0-8811-a0b6e02f01f2" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def isPrime(N):
+    if N &lt;= 1:
+        return 1
+    for i in range(2, int(N**0.5) + 1):
+        if N % i == 0:
+            return 1
+    return 0
+
+def isPalin(N):
+    return 0 if str(N) == str(N)[::-1] else 1
+
+lower = int(input(&quot;Enter lower limit: &quot;))
+upper = int(input(&quot;Enter upper limit: &quot;))
+palprimes = []
+for num in range(lower, upper + 1):
+    if isPrime(num) == 0 and isPalin(num) == 0:
+        palprimes.append(num)
+print(&quot;The palprimes are:&quot;, &quot; &quot;.join(map(str, palprimes)))</code></pre><hr id="62e0eb4b-1068-4f98-9ef1-9fb231530104"/><p id="f34f067f-ca6f-45a4-a016-fbadf399f7e1" class="">
+</p><h1 id="72d513fb-f9c6-4f70-851a-b76af2650406" class="">Question Bank – 4</h1><p id="f8a8e72c-a5bf-4ef2-aa85-7cd9287ba21c" class="">
+</p><p id="24764857-7714-4d64-88cd-a952cb49e81f" class=""><strong>Q1. Write a function </strong><code><strong>findGrade(marks)</strong></code><strong> which accepts marks as an argument and returns the grade as per the given criteria. Now in the main program, accept marks of 40 students in a subject of your class and predict the number of students in each grade.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7c795446-c7d9-4640-9a16-9c52d37d5cc8" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def findGrade(marks):
+    if 90 &lt;= marks &lt;= 100:
+        return &#x27;A&#x27;
+    elif 75 &lt;= marks &lt; 90:
+        return &#x27;B&#x27;
+    elif 60 &lt;= marks &lt; 75:
+        return &#x27;C&#x27;
+    elif 45 &lt;= marks &lt; 60:
+        return &#x27;D&#x27;
+    elif 33 &lt;= marks &lt; 45:
+        return &#x27;E&#x27;
+    else:
+        return &#x27;F&#x27;
+
+grades = {&#x27;A&#x27;: 0, &#x27;B&#x27;: 0, &#x27;C&#x27;: 0, &#x27;D&#x27;: 0, &#x27;E&#x27;: 0, &#x27;F&#x27;: 0}
+for _ in range(40):
+    marks = int(input(&quot;Enter marks: &quot;))
+    grade = findGrade(marks)
+    grades[grade] += 1
+
+for grade, count in grades.items():
+    print(f&quot;Grade {grade}: {count} students&quot;)</code></pre><p id="a01b452d-5b66-4b05-834d-427fded065b2" class="">
+</p><p id="10e1ca78-6e62-4674-84fb-109466cc3289" class=""><strong>Q2. Generate twin prime numbers between 1 and 100. Twin prime numbers are the two numbers whose difference is 2 and both are prime numbers.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="124e1ccf-dad2-4b47-b8ff-9f13f0a92665" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def is_prime(n):
+    if n &lt;= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+twins = []
+for p in range(1, 100):
+    if is_prime(p) and is_prime(p+2):
+        twins.append((p, p+2))
+print(twins)</code></pre><p id="c5d9e187-b02c-4974-a550-35a2a3faf49c" class="">
+</p><p id="3d0d1e96-1901-4c6b-8ba8-1dc33eba6872" class=""><strong>Q3. Write the function which prints as:</strong></p><ul id="a3fb07d0-a50c-465a-8444-ab31169da4f5" class="bulleted-list"><li style="list-style-type:disc"><strong>If display1()</strong> prints ‘*’ six times</li></ul><ul id="99ec5ded-d454-4b72-9254-2b7bfdeaf490" class="bulleted-list"><li style="list-style-type:disc"><strong>If display2(int n)</strong> prints ‘#’ n times</li></ul><ul id="65da925e-7d9f-4bc3-a83e-6f62a7f598d2" class="bulleted-list"><li style="list-style-type:disc"><strong>If display3(int n, char ch)</strong> prints ch for n times</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1491c6b6-670d-4437-b758-afaa10b6b9af" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def display1():
+    print(&#x27;*&#x27; * 6)
+
+def display2(n):
+    print(&#x27;#&#x27; * n)
+
+def display3(n, ch):
+    print(ch * n)
+
+display1()
+display2(5)
+display3(3, &#x27;@&#x27;)</code></pre><p id="aaba932a-0f4f-4c48-929d-0d517fdb3be9" class="">
+</p><p id="8ffb6ddf-f39f-4a5d-85a0-de011c891876" class=""><strong>Q4. Write a function </strong><code><strong>findDistance()</strong></code><strong> which accepts two points as arguments and returns the distance between them.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2948ebd0-c007-4fbe-a5f7-5626393b5c2d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import math
+
+def findDistance(p1, p2):
+    return math.sqrt((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2)
+
+p1 = (0, 3)
+p2 = (0, 10)
+distance = findDistance(p1, p2)
+print(f&quot;The distance between {p1} and {p2} is {distance}&quot;)</code></pre><p id="64f93039-76af-4af7-b27b-f5d26455e01a" class="">
+</p><p id="d860bd41-867c-4b1d-857c-025b07fc7d3f" class=""><strong>Q5. Write a function </strong><code><strong>findVowel()</strong></code><strong> which accepts a message as an argument and returns the number of vowels in it. Test the same function in the main program.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="42e01659-4413-402f-8634-93d45815a5a9" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def findVowel(message):
+    vowels = &quot;aeiouAEIOU&quot;
+    return sum(1 for char in message if char in vowels)
+
+message = &quot;This is a pen&quot;
+num_vowels = findVowel(message)
+print(f&quot;The number of vowels are {num_vowels}&quot;)</code></pre><hr id="510812a3-01f5-40d0-84db-9074d8987f27"/><p id="76e236b1-4010-4bd9-a7a4-f07323b7bfb0" class="">
+</p><h1 id="20980dd5-a5e4-47f8-abcf-ddb4e12997d9" class="">Question Bank – 5</h1><p id="9852788d-ef7c-4077-a1d7-2a65d2ff4afd" class="">
+</p><p id="b0857674-f0b8-4fee-95e4-8fd7a4f8a145" class=""><strong>Q1. The following function is created for you. Find the output of the given code:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="60feff28-6acc-4bb9-aaed-001877a44975" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def findInterest(principal, rate=5, time=2):
+    interest = (principal * rate * time) / 100.0
+    return interest
+
+print(findInterest(1000, 10, 5))  # Output: 500.0
+print(findInterest(2000, 3))      # Output: 120.0
+print(findInterest(5000))         # Output: 500.0
+print(findInterest())             # Error: missing 1 required positional argument: &#x27;principal&#x27;</code></pre><p id="15c4ac78-ceb1-40c9-b159-d58a5141a307" class="">
+</p><p id="423a24cf-8ff6-444b-8871-ce1a35bd028d" class=""><strong>Q2. Write a function </strong><code><strong>midPoint()</strong></code><strong> which accepts two points of 2-D and returns the midpoint of them. Use the function in the main program to test your Python code on the above values.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fd77263e-4e2a-4de8-8f55-76fae96d0aff" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def midPoint(p1, p2):
+    return ((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2)
+
+p1 = (2, 4)
+p2 = (6, 6)
+midpoint = midPoint(p1, p2)
+print(f&quot;The midpoint of {p1} and {p2} is {midpoint}&quot;)
+</code></pre><p id="3e1a5be8-cbb7-40b8-8406-416872a8e845" class="">
+</p><p id="3b3fe2e1-6c24-4da0-82e6-7befc835813d" class=""><strong>Q3. Write two forms of import statements.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a551103d-9ed2-4241-b819-6d2f07fe42b8" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import math
+from math import sqrt</code></pre><p id="6d17e256-65f6-40be-85ac-6ace1465a301" class="">
+</p><p id="90776460-236f-4e36-afea-25d4cf8355b9" class=""><strong>Q4. Write a function </strong><code><strong>myfunction()</strong></code><strong> which accepts a list as an argument and returns the index number of the highest element of the list.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a59efb20-91c6-4bb1-ad14-6adaa1caf77e" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def myfunction(L):
+    return L.index(max(L))
+
+L = [9, -45, 457, 85, 99]
+print(myfunction(L))  # prints 2</code></pre><p id="0517b7af-0e02-4651-8786-6e001676744d" class="">
+</p><p id="1a294cc0-56d9-4656-86dd-a1e72d7ad0fd" class=""><strong>Q5. Write a function </strong><code><strong>countMe()</strong></code><strong> which accepts a message and a letter as an argument and returns the frequency of the letter in the message.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0cac0add-e0b2-459d-81ad-451f939dadc5" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def countMe(message, letter):
+    return message.count(letter)
+
+message = &quot;This is KV Bharatpur&quot;
+letter = &#x27;i&#x27;
+print(countMe(message, letter))  # prints 2</code></pre><p id="85532169-4251-4d35-9966-ef6ff0dccadb" class="">
+</p><p id="2894fcc1-c1b9-495a-b280-ce75496ddd4e" class=""><strong>Q6. What is the difference between Actual Parameter and Formal Parameter? Explain giving example.</strong></p><ul id="f004c4ec-fdf6-41e2-9132-85f86b2f9ba7" class="bulleted-list"><li style="list-style-type:disc"><strong>Actual Parameter</strong>: Values passed to the function when called.</li></ul><ul id="39eb6854-d9d0-4207-8c23-d78ca7da6c2e" class="bulleted-list"><li style="list-style-type:disc"><strong>Formal Parameter</strong>: Parameters defined in the function definition.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8d96d062-3cc1-4458-a01f-4d41274bfcb0" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def func(a, b):  # a, b are formal parameters
+    return a + b
+
+result = func(2, 3)  # 2, 3 are actual parameters</code></pre></li></ul><p id="cd1b4068-de72-440e-8324-c397d4cf874e" class="">
+</p><p id="62e89248-0b01-4e2e-bf0e-bc27370d2a52" class=""><strong>Q7. Write a function </strong><code><strong>myfunction()</strong></code><strong> which accepts a number as an argument and prints the number and its square up to 1 in reverse order.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4655f413-e80d-4b43-b37d-6df117cadd4b" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def myfunction(n):
+    print(&quot;Number\tSquare&quot;)
+    for i in range(n, 0, -1):
+        print(f&quot;{i}\t{i**2}&quot;)
+
+myfunction(5)</code></pre><hr id="6004642c-7319-4c81-901f-876972f491a6"/><p id="72835d44-529e-48ee-84f4-42ea5e832433" class="">
+</p><h1 id="360c1944-7c41-43d5-8006-efeaa2b27ab5" class="">Question Bank – 6</h1><p id="3552cca1-e9b4-4caa-b8fe-908856fa7758" class="">
+</p><p id="62ed2d3b-7171-47ff-9920-6a5ef068cc28" class=""><strong>Q1. Write a function which accepts a list and multiplies all its elements and returns it. If any number is zero, then it leaves that zero.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f625976c-11d7-4739-9e55-9312b11c6221" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def multiply_elements(L):
+    result = 1
+    for num in L:
+        if num != 0:
+            result *= num
+    return result
+
+L = [1, 2, 3, 5, 0, -6, 4, 5]
+print(multiply_elements(L))  # prints -3600</code></pre><p id="8587121c-ed74-43ba-9efc-347a4e6a4f5a" class=""><strong>Q2. Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a hyphen-separated sequence after sorting them alphabetically.</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ce805129-6643-41cb-8045-f60569b74f66" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">sequence = input(&quot;Enter hyphen-separated sequence: &quot;)
+words = sequence.split(&#x27;-&#x27;)
+words.sort()
+sorted_sequence = &#x27;-&#x27;.join(words)
+print(sorted_sequence)</code></pre><p id="2d8a4239-1e0c-48e1-b4a6-936b69a41635" class=""><strong>Q3. Consider below-given function headers. Identify which of these will cause errors and why?</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fa89f6ea-7454-4ec1-8d88-4eb083c67932" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">(i) def func (a = 1, b):  # Error: Non-default argument follows default argument
+(ii) def func (a = 1, b, c = 2):  # Error: Non-default argument follows default argument
+(iii) def func (a = 1, b = 2, c = 3):  # Correct</code></pre><p id="9269dc8f-8702-4572-b9f5-3f30e4a8c59b" class=""><strong>Q4. Find and write the output of the following Python code:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7598ec7d-3c30-4474-9b55-333184e92ca7" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">data = [&quot;P&quot;, 20, &quot;R&quot;, 10, &quot;S&quot;, 30]
+
+times = 0
+alpha = &quot;&quot;
+add = 0
+
+for c in range(1, 6, 2):
+    times = times + c
+    alpha = alpha + data[c-1] + &quot;$&quot;
+    add = add + data[c]
+
+print(times, add, alpha)  # Output: 9 60 P$R$S$</code></pre><p id="c08b748a-f074-45c9-898d-29c5552ce919" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
