@@ -7,4 +7,4 @@
 
 - [Silent Vows - Jill Ramaswamy](./Silent Vows (The Byrne Brothers  1) - Jill Ramsower.pdf)
 - [H.D. Carlton - Shallow River](./H.D. Carlton - Shallow River.pdf)
-- [Danielle Lori - The Maddest Obsession]((Made 02) Danielle Lori - The Maddest Obsession.pdf)
+- [Danielle Lori - The Maddest Obsession](./Danielle Lori - The Maddest Obsession.pdf)
