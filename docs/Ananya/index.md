@@ -8,3 +8,5 @@
 - [Silent Vows - Jill Ramaswamy](./Silent Vows (The Byrne Brothers  1) - Jill Ramsower.pdf)
 - [H.D. Carlton - Shallow River](./H.D. Carlton - Shallow River.pdf)
 - [Danielle Lori - The Maddest Obsession](./Danielle Lori - The Maddest Obsession.pdf)
+- [Painted Scars](./Painted Scars.pdf)
+- [The Reaper: From enemies to lovers dark romance](./The Reaper An Enemies to Lovers Dark Romance.pdf)
