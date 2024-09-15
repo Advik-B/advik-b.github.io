@@ -12,3 +12,4 @@
 - [Danielle Lori - The Maddest Obsession](./Danielle Lori - The Maddest Obsession.pdf)
 - [Painted Scars](./Painted Scars.pdf)
 - [The Reaper: From enemies to lovers dark romance](./The Reaper An Enemies to Lovers Dark Romance.pdf)
+- [Selena: Dangerous Defiance](./Selena - Dangerous Defiance.pdf)
