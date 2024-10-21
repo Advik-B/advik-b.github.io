@@ -14,3 +14,4 @@
 - [The Reaper: From enemies to lovers dark romance](./The Reaper An Enemies to Lovers Dark Romance.pdf)
 - [Selena: Dangerous Defiance](./Selena - Dangerous Defiance.pdf)
 - [Hate You Always: Jennifer Sucevic](./Hate You Always - Jennifer Sucevic.pdf)
+- [Scandalous: Shen, L J](./(Sinners of Saint 3) Shen, L J - Scandalous.pdf)
