@@ -1,0 +1,602 @@
+
+<style>
+  h2.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --cv:#7B6FD4;--cv-light:#EAE7FB;--cv-dark:#4A3FA8;
+    --cp:#F5AECB;--cp-light:#FDE8F2;--cp-dark:#C4658E;
+    --cw:#FFFFFF;--ct:#2A2540;--ctm:#6B6585;--cts:#A09ABF;
+    --rad:16px;--rad-sm:10px;--rad-xs:6px;
+  }
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:transparent}
+  .scene{display:flex;flex-direction:column;align-items:center;padding:1rem 0 2rem}
+  .nav-pills{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;justify-content:center}
+  .nav-pill{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer;color:var(--color-text-secondary);transition:all 0.15s}
+  .nav-pill.active{background:var(--cv);border-color:var(--cv);color:#fff}
+  .phone{width:320px;min-height:580px;background:#1A1A2E;border-radius:36px;padding:12px;position:relative;border:3px solid #333}
+  .notch{width:100px;height:22px;background:#1A1A2E;border-radius:0 0 14px 14px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;gap:8px}
+  .notch-dot{width:8px;height:8px;border-radius:50%;background:#333}
+  .notch-bar{width:40px;height:4px;border-radius:2px;background:#333}
+  .screen{background:var(--cv-light);border-radius:26px;overflow:hidden;min-height:530px;display:flex;flex-direction:column}
+  .screen-inner{flex:1;overflow:hidden;position:relative}
+  .view{position:absolute;inset:0;overflow-y:auto;display:none;flex-direction:column}
+  .view.active{display:flex}
+  .status-bar{background:var(--cv);padding:6px 16px;display:flex;justify-content:space-between;align-items:center}
+  .status-bar span{color:rgba(255,255,255,0.9);font-size:11px;font-weight:500}
+  .app-header{background:var(--cv);padding:14px 16px 18px;border-radius:0 0 22px 22px}
+  .app-logo{color:#fff;font-size:22px;font-weight:700;letter-spacing:-0.5px}
+  .app-logo span{color:var(--cp);font-weight:800}
+  .app-sub{color:rgba(255,255,255,0.7);font-size:11px;margin-top:1px}
+  .search-bar{background:rgba(255,255,255,0.2);border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:8px;margin-top:12px;border:1px solid rgba(255,255,255,0.3)}
+  .search-bar span{color:rgba(255,255,255,0.6);font-size:13px}
+  .search-bar i{color:rgba(255,255,255,0.7);font-size:16px}
+  .home-body{padding:14px 14px;flex:1}
+  .section-label{font-size:12px;font-weight:600;color:var(--ctm);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px}
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+  .feat-card{background:var(--cw);border-radius:var(--rad-sm);padding:12px 10px;cursor:pointer;border:0.5px solid #E8E4F4;transition:all 0.15s}
+  .feat-card:hover{background:var(--cp-light)}
+  .feat-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;font-size:18px}
+  .feat-icon.scan{background:#EAE7FB}
+  .feat-icon.translate{background:#FDE8F2}
+  .feat-icon.compare{background:#E3F8EF}
+  .feat-icon.similar{background:#FEF3E2}
+  .feat-title{font-size:13px;font-weight:600;color:var(--ct)}
+  .feat-desc{font-size:11px;color:var(--ctm);margin-top:2px;line-height:1.4}
+  .recent-row{display:flex;gap:8px;align-items:center;background:var(--cw);border-radius:var(--rad-sm);padding:9px 10px;margin-bottom:7px;cursor:pointer;border:0.5px solid #E8E4F4}
+  .recent-img{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .recent-name{font-size:13px;font-weight:500;color:var(--ct)}
+  .recent-price{font-size:11px;color:var(--cv);font-weight:600}
+  .recent-time{font-size:10px;color:var(--cts)}
+  .scan-view{background:#0D0D1A;flex:1;display:flex;flex-direction:column}
+  .scan-header{background:rgba(0,0,0,0.5);padding:12px 14px;display:flex;align-items:center;gap:10px}
+  .back-btn{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .back-btn i{color:#fff;font-size:15px}
+  .scan-title{color:#fff;font-size:15px;font-weight:600}
+  .camera-area{flex:1;position:relative;display:flex;align-items:center;justify-content:center;background:#111}
+  .viewfinder{position:relative;width:180px;height:130px}
+  .vf-corner{position:absolute;width:20px;height:20px;border-color:var(--cp);border-style:solid;border-width:0}
+  .vf-corner.tl{top:0;left:0;border-top-width:3px;border-left-width:3px;border-radius:4px 0 0 0}
+  .vf-corner.tr{top:0;right:0;border-top-width:3px;border-right-width:3px;border-radius:0 4px 0 0}
+  .vf-corner.bl{bottom:0;left:0;border-bottom-width:3px;border-left-width:3px;border-radius:0 0 0 4px}
+  .vf-corner.br{bottom:0;right:0;border-bottom-width:3px;border-right-width:3px;border-radius:0 0 4px 0}
+  .scan-line{position:absolute;left:10px;right:10px;height:2px;background:linear-gradient(90deg,transparent,var(--cp),transparent);top:50%;animation:scanLine 2s infinite}
+  @keyframes scanLine{0%{top:10%}50%{top:90%}100%{top:10%}}
+  .scan-label{color:rgba(255,255,255,0.5);font-size:12px;text-align:center;margin-top:16px}
+  .scan-bottom{background:rgba(0,0,0,0.6);padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scan-btn{width:60px;height:60px;border-radius:50%;background:var(--cv);border:3px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .scan-btn i{color:#fff;font-size:24px}
+  .scan-alt{display:flex;gap:16px}
+  .scan-alt-btn{background:rgba(255,255,255,0.1);border-radius:8px;padding:6px 12px;color:rgba(255,255,255,0.7);font-size:11px;cursor:pointer;display:flex;align-items:center;gap:5px}
+  .result-header{background:var(--cv);padding:14px 14px 14px}
+  .result-product-img{width:70px;height:70px;border-radius:14px;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:36px;float:left;margin-right:12px}
+  .result-product-name{color:#fff;font-size:15px;font-weight:700;line-height:1.3}
+  .result-product-brand{color:rgba(255,255,255,0.65);font-size:12px;margin-top:2px}
+  .result-barcode{color:rgba(255,255,255,0.5);font-size:10px;margin-top:4px;font-family:monospace}
+  .result-body{padding:12px 14px;flex:1;overflow-y:auto}
+  .translate-pill{background:var(--cp);border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--cp-dark);display:inline-flex;align-items:center;gap:5px;margin-bottom:12px;cursor:pointer}
+  .info-card{background:var(--cw);border-radius:var(--rad-sm);padding:10px 12px;margin-bottom:10px;border:0.5px solid #E8E4F4}
+  .info-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:0.5px solid #F0EEF8}
+  .info-row:last-child{border-bottom:none}
+  .info-key{font-size:12px;color:var(--ctm)}
+  .info-val{font-size:12px;font-weight:600;color:var(--ct);text-align:right;max-width:60%}
+  .action-row{display:flex;gap:8px;margin-bottom:14px}
+  .action-btn{flex:1;background:var(--cv);border-radius:10px;padding:10px 8px;text-align:center;cursor:pointer;border:none}
+  .action-btn.outline{background:var(--cv-light);border:1px solid var(--cv)}
+  .action-btn-label{font-size:12px;font-weight:600;color:#fff}
+  .action-btn.outline .action-btn-label{color:var(--cv)}
+  .action-btn-sub{font-size:10px;color:rgba(255,255,255,0.7)}
+  .action-btn.outline .action-btn-sub{color:var(--ctm)}
+  .compare-header{background:var(--cv);padding:14px}
+  .compare-product-row{display:flex;align-items:center;gap:10px}
+  .compare-thumb{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:20px}
+  .compare-product-info{flex:1}
+  .compare-product-name{color:#fff;font-size:14px;font-weight:600}
+  .compare-product-note{color:rgba(255,255,255,0.6);font-size:11px}
+  .compare-tabs{display:flex;background:var(--cv-light);border-bottom:0.5px solid #E0DBF5}
+  .compare-tab{flex:1;padding:9px;text-align:center;font-size:12px;font-weight:500;color:var(--ctm);cursor:pointer;border-bottom:2px solid transparent}
+  .compare-tab.active{color:var(--cv);border-bottom-color:var(--cv);background:#fff}
+  .compare-body{padding:12px 14px;flex:1}
+  .store-row{background:var(--cw);border-radius:var(--rad-sm);padding:10px 12px;margin-bottom:8px;display:flex;align-items:center;gap:10px;border:0.5px solid #E8E4F4}
+  .store-row.best{border-color:var(--cv);border-width:1.5px}
+  .store-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:#F5F3FD}
+  .store-name{font-size:13px;font-weight:600;color:var(--ct)}
+  .store-meta{font-size:11px;color:var(--ctm)}
+  .store-price{font-size:16px;font-weight:700;color:var(--ct);margin-left:auto}
+  .store-price.best-price{color:var(--cv)}
+  .best-badge{background:var(--cv);color:#fff;font-size:9px;font-weight:700;border-radius:4px;padding:2px 5px;margin-left:6px;vertical-align:middle}
+  .savings-banner{background:var(--cp-light);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:12px;border:0.5px solid #F0C8DC}
+  .savings-text{font-size:12px;color:var(--cp-dark);font-weight:600}
+  .savings-sub{font-size:11px;color:var(--ctm)}
+  .similar-header{background:var(--cv);padding:14px}
+  .similar-product-label{color:rgba(255,255,255,0.7);font-size:11px;margin-bottom:4px}
+  .similar-product-name{color:#fff;font-size:14px;font-weight:600}
+  .similar-body{padding:12px 14px;flex:1;overflow-y:auto}
+  .filter-row{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto}
+  .filter-chip{background:var(--cw);border-radius:20px;padding:5px 11px;font-size:11px;font-weight:500;color:var(--ctm);border:0.5px solid #DDD9F0;white-space:nowrap;cursor:pointer}
+  .filter-chip.active{background:var(--cv);color:#fff;border-color:var(--cv)}
+  .similar-card{background:var(--cw);border-radius:var(--rad-sm);padding:10px;margin-bottom:8px;display:flex;gap:10px;border:0.5px solid #E8E4F4;cursor:pointer}
+  .similar-card.cheaper{border-color:#4CAF90;border-width:1.5px}
+  .similar-img{width:52px;height:52px;border-radius:10px;background:#F5F3FD;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+  .similar-name{font-size:13px;font-weight:600;color:var(--ct);line-height:1.3}
+  .similar-brand{font-size:11px;color:var(--ctm)}
+  .similar-meta{display:flex;align-items:center;gap:6px;margin-top:4px}
+  .similar-price{font-size:14px;font-weight:700;color:var(--ct)}
+  .rating-stars{color:#F5A623;font-size:11px}
+  .tag{border-radius:4px;padding:2px 6px;font-size:9px;font-weight:700}
+  .tag-cheaper{background:#E8F5F0;color:#2E7D6B}
+  .tag-better{background:#EAE7FB;color:var(--cv-dark)}
+  .tag-popular{background:#FEF3E2;color:#9A6400}
+  .translate-overlay{background:var(--cp-light);border-radius:var(--rad-sm);padding:10px 12px;margin-bottom:10px;border:1px solid #F0C8DC}
+  .translate-orig{font-size:11px;color:var(--ctm);margin-bottom:4px}
+  .translate-eng{font-size:13px;font-weight:600;color:var(--ct)}
+  .translate-badge{font-size:10px;color:var(--cp-dark);background:var(--cp);border-radius:3px;padding:1px 5px;font-weight:600;display:inline-block;margin-left:6px}
+  .bottom-nav{background:var(--cw);padding:8px 0 4px;display:flex;justify-content:space-around;border-top:0.5px solid #E8E4F4}
+  .bnav-item{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 12px}
+  .bnav-item i{font-size:20px;color:var(--cts)}
+  .bnav-item.active i{color:var(--cv)}
+  .bnav-label{font-size:9px;color:var(--cts)}
+  .bnav-item.active .bnav-label{color:var(--cv)}
+  .progress-bar{height:3px;background:#E8E4F4}
+  .progress-fill{height:100%;background:var(--cv);transition:width 0.3s}
+</style>
+
+<h2 class="sr-only">CoJoVi Shopping App interactive flow — navigate between Home, Scan, Product Result, Price Compare, and Similar Products screens</h2>
+
+<div class="scene">
+  <div class="nav-pills">
+    <div class="nav-pill active" onclick="goTo('home')">Home</div>
+    <div class="nav-pill" onclick="goTo('scan')">Scan</div>
+    <div class="nav-pill" onclick="goTo('result')">Product</div>
+    <div class="nav-pill" onclick="goTo('translate')">Translate</div>
+    <div class="nav-pill" onclick="goTo('compare')">Compare</div>
+    <div class="nav-pill" onclick="goTo('similar')">Similar</div>
+  </div>
+
+  <div class="phone">
+    <div class="notch">
+      <div class="notch-dot"></div>
+      <div class="notch-bar"></div>
+      <div class="notch-dot"></div>
+    </div>
+    <div class="screen">
+      <div class="screen-inner">
+
+        <!-- HOME -->
+        <div class="view active" id="view-home">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span>CoJoVi</span>
+            <span>●●● 100%</span>
+          </div>
+          <div class="app-header">
+            <div class="app-logo">Co<span>Jo</span>Vi</div>
+            <div class="app-sub">Smart Shopping Assistant</div>
+            <div class="search-bar">
+              <i class="ti ti-search" aria-hidden="true"></i>
+              <span>Search or type a product...</span>
+            </div>
+          </div>
+          <div class="home-body">
+            <div class="section-label" style="margin-bottom:10px">Quick Actions</div>
+            <div class="feature-grid">
+              <div class="feat-card" onclick="goTo('scan')">
+                <div class="feat-icon scan"><i class="ti ti-scan" style="color:var(--cv)"></i></div>
+                <div class="feat-title">Scan</div>
+                <div class="feat-desc">Point camera at barcode</div>
+              </div>
+              <div class="feat-card" onclick="goTo('translate')">
+                <div class="feat-icon translate"><i class="ti ti-language" style="color:var(--cp-dark)"></i></div>
+                <div class="feat-title">Translate</div>
+                <div class="feat-desc">Labels in any language</div>
+              </div>
+              <div class="feat-card" onclick="goTo('compare')">
+                <div class="feat-icon compare"><i class="ti ti-chart-bar" style="color:#2E7D6B"></i></div>
+                <div class="feat-title">Compare</div>
+                <div class="feat-desc">Best price nearby</div>
+              </div>
+              <div class="feat-card" onclick="goTo('similar')">
+                <div class="feat-icon similar"><i class="ti ti-copy" style="color:#9A6400"></i></div>
+                <div class="feat-title">Similar</div>
+                <div class="feat-desc">Find alternatives</div>
+              </div>
+            </div>
+            <div class="section-label">Recent Scans</div>
+            <div class="recent-row" onclick="goTo('result')">
+              <div class="recent-img" style="background:#F5F3FD">🥛</div>
+              <div style="flex:1">
+                <div class="recent-name">Oat Milk Original</div>
+                <div class="recent-price">€1.49 best nearby</div>
+              </div>
+              <div class="recent-time">2m ago</div>
+            </div>
+            <div class="recent-row">
+              <div class="recent-img" style="background:#FDE8F2">🍫</div>
+              <div style="flex:1">
+                <div class="recent-name">Dark Choc 85%</div>
+                <div class="recent-price">€2.29 best nearby</div>
+              </div>
+              <div class="recent-time">1h ago</div>
+            </div>
+            <div class="recent-row">
+              <div class="recent-img" style="background:#E8F5F0">🌾</div>
+              <div style="flex:1">
+                <div class="recent-name">Basmati Rice 1kg</div>
+                <div class="recent-price">€3.10 best nearby</div>
+              </div>
+              <div class="recent-time">Yesterday</div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <div class="bnav-item active"><i class="ti ti-home" aria-hidden="true"></i><span class="bnav-label">Home</span></div>
+            <div class="bnav-item" onclick="goTo('scan')"><i class="ti ti-scan" aria-hidden="true"></i><span class="bnav-label">Scan</span></div>
+            <div class="bnav-item"><i class="ti ti-clock" aria-hidden="true"></i><span class="bnav-label">History</span></div>
+            <div class="bnav-item"><i class="ti ti-user" aria-hidden="true"></i><span class="bnav-label">Profile</span></div>
+          </div>
+        </div>
+
+        <!-- SCAN -->
+        <div class="view" id="view-scan" style="background:#0D0D1A">
+          <div class="status-bar" style="background:#000">
+            <span style="color:#fff">9:41</span>
+            <span style="color:#fff">Scanning</span>
+            <span style="color:#fff">●●● 100%</span>
+          </div>
+          <div class="scan-view" style="flex:1;display:flex;flex-direction:column">
+            <div class="scan-header">
+              <div class="back-btn" onclick="goTo('home')"><i class="ti ti-arrow-left" aria-hidden="true"></i></div>
+              <div class="scan-title" style="color:#fff">Scan Product</div>
+              <div style="margin-left:auto;background:rgba(255,255,255,0.15);border-radius:8px;padding:5px 10px;cursor:pointer"><i class="ti ti-bolt" style="color:#fff;font-size:15px" aria-hidden="true"></i></div>
+            </div>
+            <div class="camera-area">
+              <div>
+                <div style="width:220px;height:40px;background:#1E1E33;border-radius:6px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;gap:6px">
+                  <span style="width:60px;height:4px;background:#444;border-radius:2px;display:block"></span>
+                  <span style="width:80px;height:4px;background:#555;border-radius:2px;display:block"></span>
+                  <span style="width:40px;height:4px;background:#444;border-radius:2px;display:block"></span>
+                </div>
+                <div class="viewfinder">
+                  <div class="vf-corner tl"></div>
+                  <div class="vf-corner tr"></div>
+                  <div class="vf-corner bl"></div>
+                  <div class="vf-corner br"></div>
+                  <div class="scan-line"></div>
+                </div>
+                <div class="scan-label">Point at barcode or product</div>
+              </div>
+            </div>
+            <div class="scan-bottom">
+              <div class="scan-btn" onclick="showScanning()"><i class="ti ti-camera" aria-hidden="true"></i></div>
+              <div id="scan-status" style="color:rgba(255,255,255,0.5);font-size:11px">Tap to capture</div>
+              <div class="scan-alt">
+                <div class="scan-alt-btn" onclick="goTo('result')"><i class="ti ti-keyboard" aria-hidden="true" style="font-size:13px"></i>Type name</div>
+                <div class="scan-alt-btn" onclick="goTo('result')"><i class="ti ti-photo" aria-hidden="true" style="font-size:13px"></i>From gallery</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESULT -->
+        <div class="view" id="view-result">
+          <div class="status-bar"><span>9:41</span><span>Result</span><span>●●● 100%</span></div>
+          <div class="result-header">
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <div class="back-btn" onclick="goTo('scan')" style="margin-top:2px"><i class="ti ti-arrow-left" aria-hidden="true"></i></div>
+              <div style="flex:1">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="result-product-img">🥛</div>
+                  <div>
+                    <div class="result-product-name">Hafermilch Natur</div>
+                    <div class="result-product-brand">Oatly · 1 Liter</div>
+                    <div class="result-barcode">4901234567890</div>
+                    <div style="display:flex;gap:5px;margin-top:6px">
+                      <span style="background:rgba(255,255,255,0.2);border-radius:4px;padding:2px 7px;font-size:10px;color:#fff">Vegan</span>
+                      <span style="background:rgba(255,255,255,0.2);border-radius:4px;padding:2px 7px;font-size:10px;color:#fff">Plant-based</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-body">
+            <div class="translate-pill" onclick="goTo('translate')">
+              <i class="ti ti-language" aria-hidden="true" style="font-size:14px"></i>
+              Translate Label
+            </div>
+            <div class="action-row">
+              <div class="action-btn" onclick="goTo('compare')">
+                <div class="action-btn-label">Compare Prices</div>
+                <div class="action-btn-sub">3 stores nearby</div>
+              </div>
+              <div class="action-btn outline" onclick="goTo('similar')">
+                <div class="action-btn-label">Similar</div>
+                <div class="action-btn-sub">5 alternatives</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-row">
+                <div class="info-key">Best price</div>
+                <div class="info-val" style="color:var(--cv);font-size:15px">€1.49</div>
+              </div>
+              <div class="info-row">
+                <div class="info-key">Store</div>
+                <div class="info-val">Lidl · 0.3 km away</div>
+              </div>
+              <div class="info-row">
+                <div class="info-key">Price range</div>
+                <div class="info-val">€1.49 — €2.19</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-row">
+                <div class="info-key">Calories</div>
+                <div class="info-val">45 kcal / 100ml</div>
+              </div>
+              <div class="info-row">
+                <div class="info-key">Sugar</div>
+                <div class="info-val">4.0g</div>
+              </div>
+              <div class="info-row">
+                <div class="info-key">Allergens</div>
+                <div class="info-val">Gluten (oats)</div>
+              </div>
+              <div class="info-row">
+                <div class="info-key">Origin</div>
+                <div class="info-val">Sweden</div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <div class="bnav-item" onclick="goTo('home')"><i class="ti ti-home" aria-hidden="true"></i><span class="bnav-label">Home</span></div>
+            <div class="bnav-item active"><i class="ti ti-scan" aria-hidden="true"></i><span class="bnav-label">Scan</span></div>
+            <div class="bnav-item"><i class="ti ti-clock" aria-hidden="true"></i><span class="bnav-label">History</span></div>
+            <div class="bnav-item"><i class="ti ti-heart" aria-hidden="true"></i><span class="bnav-label">Saved</span></div>
+          </div>
+        </div>
+
+        <!-- TRANSLATE -->
+        <div class="view" id="view-translate">
+          <div class="status-bar"><span>9:41</span><span>Translate</span><span>●●● 100%</span></div>
+          <div class="result-header">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div class="back-btn" onclick="goTo('result')"><i class="ti ti-arrow-left" aria-hidden="true"></i></div>
+              <div>
+                <div style="color:#fff;font-size:15px;font-weight:600">Label Translation</div>
+                <div style="color:rgba(255,255,255,0.6);font-size:11px">German → English</div>
+              </div>
+              <div style="margin-left:auto;display:flex;gap:6px">
+                <div style="background:rgba(255,255,255,0.2);border-radius:8px;padding:5px 10px;font-size:11px;color:#fff;cursor:pointer">DE</div>
+                <div style="background:var(--cp);border-radius:8px;padding:5px 10px;font-size:11px;color:var(--cp-dark);font-weight:600;cursor:pointer">EN</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:14px;flex:1;overflow-y:auto">
+            <div style="background:var(--cw);border-radius:12px;border:0.5px solid #E8E4F4;overflow:hidden;margin-bottom:12px">
+              <div style="background:var(--cv-light);padding:8px 12px;border-bottom:0.5px solid #E8E4F4;display:flex;align-items:center;gap:6px">
+                <i class="ti ti-package" style="color:var(--cv);font-size:14px" aria-hidden="true"></i>
+                <span style="font-size:12px;font-weight:600;color:var(--cv)">Product Name</span>
+              </div>
+              <div style="padding:10px 12px">
+                <div style="font-size:11px;color:var(--ctm);margin-bottom:3px">Original (German)</div>
+                <div style="font-size:14px;font-weight:600;color:var(--ct)">Hafermilch Natur</div>
+                <div style="height:0.5px;background:#F0EEF8;margin:8px 0"></div>
+                <div style="font-size:11px;color:var(--ctm);margin-bottom:3px">Translated (English)</div>
+                <div style="font-size:14px;font-weight:600;color:var(--cv)">Natural Oat Milk <span class="translate-badge">AI</span></div>
+              </div>
+            </div>
+            <div class="translate-overlay">
+              <div class="translate-orig">Zutaten (Ingredients)</div>
+              <div class="translate-eng">Water, oats (10%), rapeseed oil, salt</div>
+            </div>
+            <div class="translate-overlay">
+              <div class="translate-orig">Nährwertangaben (Nutrition Facts)</div>
+              <div class="translate-eng">Per 100ml: Energy 45 kcal, Fat 1.5g, Carbohydrates 6.5g of which sugars 4.0g, Protein 1.0g, Salt 0.1g</div>
+            </div>
+            <div class="translate-overlay">
+              <div class="translate-orig">Lagerung (Storage)</div>
+              <div class="translate-eng">Store in a cool, dry place. Once opened, refrigerate and consume within 5 days.</div>
+            </div>
+            <div class="translate-overlay">
+              <div class="translate-orig">Enthält Gluten (Contains)</div>
+              <div class="translate-eng">Contains gluten from oats. May contain traces of other cereals.</div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:4px">
+              <div style="flex:1;background:var(--cv);border-radius:10px;padding:10px;text-align:center;cursor:pointer" onclick="goTo('compare')">
+                <div style="color:#fff;font-size:12px;font-weight:600">Compare Prices</div>
+              </div>
+              <div style="flex:1;background:var(--cv-light);border-radius:10px;padding:10px;text-align:center;cursor:pointer;border:1px solid var(--cv)" onclick="goTo('similar')">
+                <div style="color:var(--cv);font-size:12px;font-weight:600">Find Similar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPARE -->
+        <div class="view" id="view-compare">
+          <div class="status-bar"><span>9:41</span><span>Price Compare</span><span>●●● 100%</span></div>
+          <div class="compare-header">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div class="back-btn" onclick="goTo('result')"><i class="ti ti-arrow-left" aria-hidden="true"></i></div>
+              <div style="color:#fff;font-size:15px;font-weight:600">Price Comparison</div>
+            </div>
+            <div class="compare-product-row">
+              <div class="compare-thumb">🥛</div>
+              <div class="compare-product-info">
+                <div class="compare-product-name">Oatly Hafermilch Natur 1L</div>
+                <div class="compare-product-note">Barcode · 3 stores · Updated now</div>
+              </div>
+            </div>
+          </div>
+          <div class="compare-tabs">
+            <div class="compare-tab active">Nearby Stores</div>
+            <div class="compare-tab">Online</div>
+            <div class="compare-tab">Price History</div>
+          </div>
+          <div class="compare-body">
+            <div class="savings-banner">
+              <i class="ti ti-pig-money" style="color:var(--cp-dark);font-size:20px" aria-hidden="true"></i>
+              <div>
+                <div class="savings-text">Save up to €0.70 today</div>
+                <div class="savings-sub">Choose Lidl over Rewe to save most</div>
+              </div>
+            </div>
+            <div class="store-row best">
+              <div class="store-logo">🛒</div>
+              <div style="flex:1">
+                <div class="store-name">Lidl <span class="best-badge">BEST</span></div>
+                <div class="store-meta">0.3 km · In stock · <span style="color:#2E7D6B">Open</span></div>
+              </div>
+              <div class="store-price best-price">€1.49</div>
+            </div>
+            <div class="store-row">
+              <div class="store-logo">🏪</div>
+              <div style="flex:1">
+                <div class="store-name">Aldi</div>
+                <div class="store-meta">0.6 km · In stock · <span style="color:#2E7D6B">Open</span></div>
+              </div>
+              <div class="store-price">€1.79</div>
+            </div>
+            <div class="store-row">
+              <div class="store-logo">🏬</div>
+              <div style="flex:1">
+                <div class="store-name">Edeka</div>
+                <div class="store-meta">0.8 km · In stock · <span style="color:#2E7D6B">Open</span></div>
+              </div>
+              <div class="store-price">€1.99</div>
+            </div>
+            <div class="store-row">
+              <div class="store-logo">🏷</div>
+              <div style="flex:1">
+                <div class="store-name">Rewe</div>
+                <div class="store-meta">1.2 km · Low stock · <span style="color:#2E7D6B">Open</span></div>
+              </div>
+              <div class="store-price">€2.19</div>
+            </div>
+            <div style="margin-top:10px;background:var(--cw);border-radius:10px;padding:10px 12px;border:0.5px solid #E8E4F4">
+              <div style="font-size:12px;color:var(--ctm);margin-bottom:6px">Price trend (30 days)</div>
+              <svg viewBox="0 0 260 50" style="width:100%;height:50px">
+                <polyline points="0,35 40,30 80,38 120,28 160,32 200,22 240,20 260,18" fill="none" stroke="#7B6FD4" stroke-width="2"/>
+                <circle cx="260" cy="18" r="4" fill="#7B6FD4"/>
+              </svg>
+              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--cts)">
+                <span>30d ago</span><span>Now · €1.49</span>
+              </div>
+            </div>
+            <div style="margin-top:10px;background:var(--cv);border-radius:10px;padding:10px;text-align:center;cursor:pointer" onclick="goTo('similar')">
+              <div style="color:#fff;font-size:12px;font-weight:600">Explore Cheaper Alternatives</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMILAR -->
+        <div class="view" id="view-similar">
+          <div class="status-bar"><span>9:41</span><span>Similar Products</span><span>●●● 100%</span></div>
+          <div class="similar-header">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <div class="back-btn" onclick="goTo('compare')"><i class="ti ti-arrow-left" aria-hidden="true"></i></div>
+              <div style="color:#fff;font-size:15px;font-weight:600">Similar Products</div>
+            </div>
+            <div class="similar-product-label">Based on: Oatly Hafermilch 1L · €1.49</div>
+            <div class="similar-product-name">5 alternatives found</div>
+          </div>
+          <div class="similar-body">
+            <div class="filter-row">
+              <div class="filter-chip active">All</div>
+              <div class="filter-chip">Cheaper</div>
+              <div class="filter-chip">Better rated</div>
+              <div class="filter-chip">Same brand</div>
+            </div>
+            <div class="similar-card cheaper">
+              <div class="similar-img">🥛</div>
+              <div style="flex:1">
+                <div class="similar-name">Ja! Hafermilch</div>
+                <div class="similar-brand">Rewe Eigenmarke · 1L</div>
+                <div class="similar-meta">
+                  <div class="similar-price">€0.99</div>
+                  <div class="rating-stars">★★★★</div>
+                  <span class="tag tag-cheaper">−33%</span>
+                </div>
+              </div>
+            </div>
+            <div class="similar-card">
+              <div class="similar-img">🌾</div>
+              <div style="flex:1">
+                <div class="similar-name">Alpro Oat Original</div>
+                <div class="similar-brand">Alpro · 1L</div>
+                <div class="similar-meta">
+                  <div class="similar-price">€1.39</div>
+                  <div class="rating-stars">★★★★★</div>
+                  <span class="tag tag-better">Top rated</span>
+                </div>
+              </div>
+            </div>
+            <div class="similar-card">
+              <div class="similar-img">🌿</div>
+              <div style="flex:1">
+                <div class="similar-name">Oatly Barista Ed.</div>
+                <div class="similar-brand">Oatly · 1L</div>
+                <div class="similar-meta">
+                  <div class="similar-price">€1.79</div>
+                  <div class="rating-stars">★★★★★</div>
+                  <span class="tag tag-popular">Best seller</span>
+                </div>
+              </div>
+            </div>
+            <div class="similar-card">
+              <div class="similar-img">☕</div>
+              <div style="flex:1">
+                <div class="similar-name">DM Bio Hafermilch</div>
+                <div class="similar-brand">DM · 1L · Organic</div>
+                <div class="similar-meta">
+                  <div class="similar-price">€1.25</div>
+                  <div class="rating-stars">★★★★</div>
+                  <span class="tag tag-cheaper">−16%</span>
+                </div>
+              </div>
+            </div>
+            <div class="similar-card">
+              <div class="similar-img">🌻</div>
+              <div style="flex:1">
+                <div class="similar-name">Oatsome Bio Hafer</div>
+                <div class="similar-brand">Oatsome · 1L</div>
+                <div class="similar-meta">
+                  <div class="similar-price">€1.59</div>
+                  <div class="rating-stars">★★★★</div>
+                  <span class="tag tag-better">Similar taste</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <div class="bnav-item" onclick="goTo('home')"><i class="ti ti-home" aria-hidden="true"></i><span class="bnav-label">Home</span></div>
+            <div class="bnav-item" onclick="goTo('scan')"><i class="ti ti-scan" aria-hidden="true"></i><span class="bnav-label">Scan</span></div>
+            <div class="bnav-item"><i class="ti ti-clock" aria-hidden="true"></i><span class="bnav-label">History</span></div>
+            <div class="bnav-item active"><i class="ti ti-copy" aria-hidden="true"></i><span class="bnav-label">Similar</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const views = ['home','scan','result','translate','compare','similar'];
+function goTo(id){
+  views.forEach(v=>{
+    const el = document.getElementById('view-'+v);
+    const pill = document.querySelector('.nav-pill[onclick="goTo(\''+v+'\')"]');
+    if(el) el.classList.remove('active');
+    if(pill) pill.classList.remove('active');
+  });
+  const target = document.getElementById('view-'+id);
+  const targetPill = document.querySelector('.nav-pill[onclick="goTo(\''+id+'\')"]');
+  if(target){ target.classList.add('active'); target.scrollTop=0; }
+  if(targetPill) targetPill.classList.add('active');
+}
+function showScanning(){
+  const btn = document.getElementById('scan-status');
+  btn.textContent = 'Scanning...';
+  btn.style.color = 'var(--cp)';
+  setTimeout(()=>{ goTo('result'); btn.textContent='Tap to capture'; btn.style.color='rgba(255,255,255,0.5)'; }, 1200);
+}
+</script>
